@@ -9,11 +9,11 @@
   <tbody>
     {{#each model.triples as |triple|}}
       <tr>
-        <td><a href={{triple.subject}}>{{triple.subject}}</a></td>
-        <td><a href={{triple.predicate}}>{{triple.predicate}}</a></td>
+        <td><Metis::DisplayUri @uri={{triple.subject}} /></td>
+        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
         <td>
           {{#if (eq triple.object.type "uri")}}
-            <a href={{triple.object.value}}>{{triple.object.value}}</a>
+            <Metis::DisplayUri @uri={{triple.object.value}} />
           {{else}}
             {{triple.object.value}}
           {{/if}}
