@@ -6,10 +6,12 @@
   {{/if}}
 </a>
 
-<button {{on "click" (fn (mut this.showShort) (not this.showShort))}}>
-  {{#if this.showShort}}
-    [+]
-  {{else}}
-    [-]
-  {{/if}}
-</button>
+{{#if this.hasShort}}
+  <button {{on "click" (fn (mut this.showShort) (not this.showShort))}}>
+    {{#if this.showShort}}
+      [+]
+    {{else}}
+      [-]
+    {{/if}}
+  </button>
+{{/if}}
