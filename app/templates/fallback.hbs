@@ -1,0 +1,29 @@
+<h1>Describing {{model.subject}}</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>subject</th><th>predicate</th><th>object</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model.triples as |triple|}}
+      <tr>
+        <td><a href={{triple.subject}}>{{triple.subject}}</a></td>
+        <td><a href={{triple.predicate}}>{{triple.predicate}}</a></td>
+        <td>
+          {{#if (eq triple.object.type "uri")}}
+            <a href={{triple.object.value}}>{{triple.object.value}}</a>
+          {{else}}
+            {{triple.object.value}}
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<ul>
+</ul>
+
+{{outlet}}
