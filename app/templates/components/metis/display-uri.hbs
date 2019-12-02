@@ -1,17 +1,12 @@
-<a href={{@uri}}>
-  {{#if this.hasShort}}
-    {{this.label}}
-  {{else}}
-    {{@uri}}
-  {{/if}}
-</a>
-
 {{#if this.hasShort}}
-  <button {{on "click" (fn (mut this.showShort) (not this.showShort))}}>
-    {{#if this.showShort}}
-      [+]
+  <span {{on "click" (fn (mut this.showShort) (not this.showShort))}} aria-role="button">
+    {{#if this.hasShort}}
+      {{this.label}}
     {{else}}
-      [-]
+      {{@uri}}
     {{/if}}
-  </button>
+  </span>
+  <a href={{@uri}}>[open]</a>
+{{else}}
+  <a href={{@uri}}>{{@uri}}</a>
 {{/if}}
