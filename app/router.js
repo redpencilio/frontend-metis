@@ -8,5 +8,11 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('view', function() {
+    const classRoute = GCR("view", this);
+
+    classRoute('person', { class: "http://www.w3.org/ns/person#Person" } );
+  });
+
   this.route('fallback', { path: "/*path"} );
 });
