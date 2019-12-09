@@ -6,7 +6,15 @@
       {{@uri}}
     {{/if}}
   </span>
-  <a href={{@uri}}>[open]</a>
+  {{#if this.localBasePath}}
+    {{link-to "[open]" "fallback" this.localBasePath}}
+  {{else}}
+    <a href={{@uri}}>[open]</a>
+  {{/if}}
 {{else}}
-  <a href={{@uri}}>{{@uri}}</a>
+  {{#if this.localBasePath}}
+    {{link-to @uri "fallback" this.localBasePath}}
+  {{else}}
+    <a href={{@uri}}>{{@uri}}</a>
+  {{/if}}
 {{/if}}

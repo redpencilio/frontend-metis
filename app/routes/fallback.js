@@ -1,9 +1,10 @@
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
+import env from '../config/environment';
 
 export default Route.extend({
   async model( { path } ) {
-    const prefix = "http://mu.semte.ch/";
+    const prefix = env.metisBaseUrl;
     const subject = `${prefix}${path}`;
 
     const requestUrl = new URL(`${window.location.origin}/uri-info/`);

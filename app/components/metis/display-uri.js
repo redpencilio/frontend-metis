@@ -1,6 +1,7 @@
 import { tracked } from '@glimmer/tracking';
 import Component from '@glimmer/component';
 import fetch from 'fetch';
+import env from 'frontend-metis/config/environment';
 
 export default class MetisDisplayUriComponent extends Component {
   @tracked externalPreflabel = null
@@ -33,6 +34,15 @@ export default class MetisDisplayUriComponent extends Component {
     } else {
       this.externalPreflabel = null;
     }
+  }
+
+  get localBasePath() {
+    const uri = this.args.uri || "";
+
+    if( uri.startsWith( env.metisBaseUrl ) )
+      return uri.slice( env.metisBaseUrl.length );
+    else
+      return null;
   }
 
   get label() {
