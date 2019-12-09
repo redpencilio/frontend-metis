@@ -5,7 +5,7 @@ import env from '../config/environment';
 export default class FallbackRoute extends Route {
 
   async model( { path } ) {
-    const prefix = env.metisBaseUrl;
+    const prefix = env.metis.baseUrl;
     const subject = `${prefix}${path}`;
 
     const requestUrl = new URL(`${window.location.origin}/uri-info/`);
