@@ -23,7 +23,7 @@ export default class FallbackRoute extends Route {
 
     for( let type of types )
       if( env.metis.routes[type] ) {
-        this.replaceWith( env.metis.routes[type] );
+        this.replaceWith( env.metis.routes[type], { queryParams: { resource: model.subject } } );
         return;
       }
   }
