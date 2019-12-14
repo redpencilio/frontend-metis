@@ -1,0 +1,21 @@
+.word-break--break-all,
+.data-table td {
+	word-break: break-word;
+}
+
+.h1 a {
+	text-decoration: initial;
+}
+
+dt {
+	font-weight: bold;
+}
+
+.temporary-header__name {
+	padding-top: 1.2rem;
+	margin-top: 0.2rem;
+}
+
+.content-header {
+	min-height: 16rem;
+}

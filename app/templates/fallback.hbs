@@ -1,48 +1,116 @@
-<h1>Describing {{model.subject}}</h1>
+{{!--
+	Vragen:
+	-	tijd vervormen in iets leesbaar?
+	-	tooltips?
+	- is sorteren van data mogelijk op iets betekenisvol?
+		-	type
+		-	alias
+		- holds
+		-	start, einde
+--}}
 
-<h2>Directed</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>subject</th><th>predicate</th><th>object</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model.triples.directed as |triple|}}
-      <tr>
-        <td><Metis::DisplayUri @uri={{triple.subject}} /></td>
-        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
-        <td>
-          {{#if (eq triple.object.type "uri")}}
-            <Metis::DisplayUri @uri={{triple.object.value}} />
-          {{else}}
-            {{triple.object.value}}
-          {{/if}}
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="container-flex--scroll">
+	<div class="page">
+		<div class="region">
+			<div class="layout layout--wide">
 
-<h2>Inverse</h2>
+				<div class="grid">
+					<div class="col--8-12 col--12-12--s">
+						<div class="u-hr region typography u-spacer">
+							<h1 class="h1 word-break--break-all smaller">Detailpagina voor <a href="{{model.subject}}" data-toggle="tooltip" title="Onderwerp" data-content="Onderwerp" data-placement="top">{{model.subject}}</a></h1>
+							<p class="introduction">Deze pagina beschrijft de links die vanuit en naar het onderwerp gelegd worden. Is dat alles wat we kunnen garanderen van randinformatie?</p>
+						</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>subject</th><th>predicate</th><th>object</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model.triples.inverse as |triple|}}
-      <tr>
-        <td><Metis::DisplayUri @uri={{triple.subject}} /></td>
-        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
-        <td><Metis::DisplayUri @uri={{triple.object}} /></td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+						<div class="u-hr region typography u-spacer">
+							<h1 class="h1 word-break--break-all">Detailpagina voor<br><a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Voornaam Familienaam</a></h1>
+							<p class="introduction u-spacer">Deze pagina beschrijft <strong>label</strong> en de links die vanuit en naar het onderwerp gelegd worden. Misschien nog wat meer uitleg over waar deze informatie vandaan komt en links naar andere plaatsen? Eens denken over wat mensen willen/moeten weten kwestie van introductie.</p>
+						</div>
+
+						<div class="region region--no-space-top">
+							<dl>
+								<dt>Beschrijving</dt>
+								<dd>Relevante informatie? Korte omschrijving van het onderwerp indien beschikbaar?</dd>
+
+								<dt>Gebruik</dt>
+								<dd>Relevante informatie? Waar wordt het gebruikt? Is dat interessant?</dd>
+							</dl>
+						</div>
+
+
+						<h2 class="h3 u-spacer--tiny word-break--break-all">Directe informatie over <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">label</a></h2>
+						<p class="u-spacer">Directed links.</p>
+						{{!-- <h2 class="h3 u-spacer--tiny word-break--break-all">Extra informatie over <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">label</a></h2> --}}
+
+						<div class="u-spacer--large">
+							<table class="data-table data-table--zebra">
+							  <thead>
+							    <tr>
+							      {{!-- <th>subject</th> --}}
+							      <th>Eigenschap{{!-- predicate --}}</th>
+							      <th>Inhoud{{!-- object --}}</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+		{{!-- 					  	<tr>
+							  		<td>
+							  			<p>Label</p>
+							  			<button class="button button--tiny button--alt">Toon link</button>
+							  			<a href="#">Open link</a>
+							  		</td>
+							  	</tr> --}}
+							    {{#each model.triples.directed as |triple|}}
+							      <tr>
+							        {{!-- <td><Metis::DisplayUri @uri={{triple.subject}} /></td> --}}
+							        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
+							        <td>
+							          {{#if (eq triple.object.type "uri")}}
+							            <Metis::DisplayUri @uri={{triple.object.value}} />
+							          {{else}}
+							            {{triple.object.value}}
+							          {{/if}}
+							        </td>
+							      </tr>
+							    {{/each}}
+							  </tbody>
+							</table>
+						</div>
+
+						<h2 class="h3 u-spacer--tiny">Verwijzingen naar <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">label</a></h2>
+						<p class="u-spacer">Inverse links.</p>
+						{{!-- <p class="u-spacer--small">{{model.subject}}</p> --}}
+
+						{{#if model.triples.inverse}}
+							<div class="u-spacer--large">
+								<table class="data-table data-table--zebra">
+								  <thead>
+								    <tr>
+								      {{!-- <th>subject</th> --}}
+								      <th>Eigenschap{{!-- predicate --}}</th>
+								      <th>Inhoud{{!-- object --}}</th>
+								    </tr>
+								  </thead>
+								  <tbody>
+								    {{#each model.triples.inverse as |triple|}}
+								      <tr>
+								        {{!-- <td><Metis::DisplayUri @uri={{triple.subject}} /></td> --}}
+								        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
+								        <td><Metis::DisplayUri @uri={{triple.object}} /></td>
+								      </tr>
+								    {{/each}}
+								  </tbody>
+								</table>
+							</div>
+						{{else}}
+							<p class="text-fade">Geen verwijzingen gevonden.</p>
+						{{/if}}
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
 
 
 {{outlet}}
