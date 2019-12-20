@@ -10,7 +10,21 @@
 		<div class="region">
 			<div class="layout layout--wide">
 				{{#if isEmpty}}
-					<h1 class="h1 word-break--break-all smaller">Er werden geen relaties of details gevonden over <a href="{{model.subject}}" data-toggle="tooltip" title="Onderwerp" data-content="Onderwerp" data-placement="top">{{model.subject}}</a>.</h1>
+
+					<div class="grid">
+						<div class="col--7-12 col--12-12--s">
+							<div class="region typography u-spacer">
+								<h1 class="h1 word-break--break-all u-spacer--bottom--small">Detailpagina niet gevonden.</h1>
+								<p class="word-break--break-all">Er werden geen relaties of details gevonden over <a href="{{model.subject}}" data-toggle="tooltip" title="Onderwerp" data-content="Onderwerp" data-placement="top">{{model.subject}}</a>.</p>
+							</div>
+
+							<div class="region typography u-spacer">
+								<h2 class="h2">Waarvoor dient deze website?</h2>
+								<p>Deze website wordt gebruikt om de informatie over URI's die in kader van het project Lokale Besturen Linked Open Data gebruikt worden, te tonen op een leesbare en begrijpbare manier. Deze links kan u onder andere ontdekken op <a href="https://publicatie.gelinkt-notuleren.vlaanderen.be" target="_blank">https://publicatie.gelinkt-notuleren.vlaanderen.be</a>.</p>
+							</div>
+						</div>
+					</div>
+
 				{{else}}
 
 					<div class="grid">
@@ -29,6 +43,7 @@
 									</div>
 									<div class="col--8-12">
 										<h1 class="h1 u-spacer--bottom--tiny word-break--break-all">Detailpagina voor<br><a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Voornaam</a> <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Familienaam</a></h1>
+										<p class="introduction">Deze pagina geeft informatie over het onderwerp en diens relaties, eigenschappen en verwijzingen.</p>
 									</div>
 								</div>
 								<div class="region">
@@ -37,10 +52,9 @@
 								</div>
 							</div>
 
-							<h2 class="h2 u-spacer--large">Relaties, eigenschappen en verwijzingen</h2>
-							<h3 class="h4 sans-serif u-spacer--tiny word-break--break-all">Directe eigenschappen en relaties van <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">onderwerp</a></h3>
-							<p class="u-spacer">Directed links.</p>
-							{{!-- <h3 class="h4 sans-serif u-spacer--tiny word-break--break-all">Extra informatie over <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">label</a></h3> --}}
+							<h2 class="h3 sans-serif u-spacer--tiny word-break--break-all">Eigenschappen en relaties</h2>
+							<p class="u-spacer">Directed links van het onderwerp.</p>
+							{{!-- <h2 class="h3 sans-serif u-spacer--tiny word-break--break-all">Extra informatie over <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">label</a></h2> --}}
 
 							<div class="u-spacer--large">
 								<table class="data-table data-table--zebra">
@@ -78,8 +92,8 @@
 								</table>
 							</div>
 
-							<h3 class="h4 sans-serif u-spacer--tiny">Verwijzingen naar <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">onderwerp</a></h3>
-							<p class="u-spacer">Inverse links.</p>
+							<h2 class="h3 sans-serif u-spacer--tiny">Verwijzingen</h2>
+							<p class="u-spacer">Inverse links naar het onderwerp.</p>
 							{{!-- <p class="u-spacer--small">{{model.subject}}</p> --}}
 
 							{{#if model.triples.inverse}}
