@@ -7,6 +7,10 @@
 		-	alias
 		- holds
 		-	start, einde
+	-	if else voor geen pagina gevonden
+	-	kan je specifieke informatie naar een specifieke plek laten doorstromen?
+		-	foto?
+		- kaartje?
 --}}
 
 
@@ -23,20 +27,33 @@
 						</div>
 
 						<div class="u-hr region typography u-spacer">
-							<h1 class="h1 word-break--break-all">Detailpagina voor<br><a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Voornaam Familienaam</a></h1>
+							<div class="grid">
+								<div class="col--8-12">
+									<h1 class="h1 u-spacer--bottom--tiny word-break--break-all">Detailpagina voor<br><a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Voornaam Familienaam</a></h1>
+									<h2 class="h3 sans-serif u-spacer--top--none">Burgemeester Berlare</h2>
+								</div>
+								<div class="col--4-12">
+									<div class="placeholder-picture">
+									</div>
+								</div>
+							</div>
 							<p class="introduction u-spacer">Deze pagina beschrijft <strong>label</strong> en de links die vanuit en naar het onderwerp gelegd worden. Misschien nog wat meer uitleg over waar deze informatie vandaan komt en links naar andere plaatsen? Eens denken over wat mensen willen/moeten weten kwestie van introductie.</p>
+
+							<div class="region region--no-space-top">
+								<dl>
+									<dt>Beschrijving</dt>
+									<dd>Relevante informatie? Korte omschrijving van het onderwerp indien beschikbaar?</dd>
+
+									<dt>Gebruik</dt>
+									<dd>Relevante informatie? Waar wordt het gebruikt? Is dat interessant?</dd>
+								</dl>
+							</div>
 						</div>
+
 
 						<div class="region region--no-space-top">
-							<dl>
-								<dt>Beschrijving</dt>
-								<dd>Relevante informatie? Korte omschrijving van het onderwerp indien beschikbaar?</dd>
-
-								<dt>Gebruik</dt>
-								<dd>Relevante informatie? Waar wordt het gebruikt? Is dat interessant?</dd>
-							</dl>
+							<iframe width="100%" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.929672241210938%2C50.995283325981084%2C4.046401977539063%2C51.06470168927767&amp;layer=transportmap"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=13/51.0300/3.9880&amp;layers=T" target="_blank"><i class="fa fa-external-link"></i> Bekijk op een grotere kaart</a></small>
 						</div>
-
 
 						<h2 class="h3 u-spacer--tiny word-break--break-all">Directe informatie over <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">label</a></h2>
 						<p class="u-spacer">Directed links.</p>
@@ -47,6 +64,7 @@
 							  <thead>
 							    <tr>
 							      {{!-- <th>subject</th> --}}
+							      <th></th>
 							      <th>Eigenschap{{!-- predicate --}}</th>
 							      <th>Inhoud{{!-- object --}}</th>
 							    </tr>
@@ -62,6 +80,7 @@
 							    {{#each model.triples.directed as |triple|}}
 							      <tr>
 							        {{!-- <td><Metis::DisplayUri @uri={{triple.subject}} /></td> --}}
+							        <td></td>
 							        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
 							        <td>
 							          {{#if (eq triple.object.type "uri")}}
