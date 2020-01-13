@@ -6,7 +6,10 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     locationType: 'auto',
-    metisBaseUrl: "http://data.lblod.info/",
+    metis: {
+      routes: {},
+      baseUrl: "http://data.lblod.info/"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
