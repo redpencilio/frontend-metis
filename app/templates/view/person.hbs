@@ -32,20 +32,56 @@
 										</div>
 									</div>
 									<div class="col--8-12">
-										<h1 class="h1 u-spacer--bottom--tiny word-break--break-all">Detailpagina voor de persoon <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Voornaam</a> <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Familienaam</a></h1>
-										<p class="introduction">Deze pagina geeft informatie over het onderwerp en diens relaties, eigenschappen en verwijzingen.</p>
-										<p>Geboren op °24-07-1989 in Berlare &mdash; <i class="fa fa-female"></i> Vrouw</p>
+										<h1 class="h1 u-spacer--bottom--tiny word-break--break-all">Detailpagina voor de persoon Voornaam Familienaam</h1>
+										<p class="introduction">
+											°24-07-1989, <a href="#">Berlare</a> &mdash; 24-08-2089, <a href="#">Berlare</a>
+											<br>
+											<i class="fa fa-female"></i> Vrouw &mdash; Getrouwd
+											<br>
+											<i class="fa fa-location-arrow"></i> Woonplaats <a href="#">Berlare</a>
+										</p>
+										{{!-- <p class="introduction">Deze pagina geeft informatie over de persoon en diens relaties, eigenschappen en verwijzingen.</p> --}}
 									</div>
 								</div>
 								<div class="region">
-									<h2 class="h4 sans-serif u-spacer--none">Mandaat: <a href="#">Burgemeester</a> <a href="#">Berlare</a></h2>
-									<iframe width="100%" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.929672241210938%2C50.995283325981084%2C4.046401977539063%2C51.06470168927767&amp;layer=transportmap"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=13/51.0300/3.9880&amp;layers=T" target="_blank"><i class="fa fa-external-link"></i> Bekijk op een grotere kaart</a></small>
+									<h2 class="h4 sans-serif">Mandaten</h2>
+
+									<div class="grid">
+										<div class="col--6-12 col--12-12--s">
+											<h3 class="h3 u-spacer--none">Burgemeester <a href="#">Berlare</a></h3>
+											<h4 class="h4 sans-serif text-light u-spacer--bottom"><a href="#">College van Burgemeester &amp; Schepenen</a></h4>
+											<p>
+												24-12-2018 &mdash; 24-08-2026
+												<br>Effectief
+											</p>
+										</div>
+										<div class="col--6-12 col--12-12--s">
+											<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.929672241210938%2C50.995283325981084%2C4.046401977539063%2C51.06470168927767&amp;layer=transportmap"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=13/51.0300/3.9880&amp;layers=T" target="_blank"><i class="fa fa-external-link"></i> Bekijk op een grotere kaart</a></small>
+										</div>
+									</div>
+									<div class="u-hr u-spacer--tb--large"></div>
+
+									<div class="grid">
+										<div class="col--6-12 col--12-12--s">
+											<h3 class="h3 u-spacer--none">Schepen <a href="#">Berlare</a></h3>
+											<h4 class="h4 sans-serif text-light u-spacer--bottom"><a href="#">College van Burgemeester &amp; Schepenen</a></h4>
+											<p>
+												24-12-2018 &mdash; 24-08-2026
+												<br>3de schepen
+												<br>Natuur &amp; Bos
+												<br>Open VLD
+											</p>
+										</div>
+										<div class="col--6-12 col--12-12--s">
+											<iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.929672241210938%2C50.995283325981084%2C4.046401977539063%2C51.06470168927767&amp;layer=transportmap"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=13/51.0300/3.9880&amp;layers=T" target="_blank"><i class="fa fa-external-link"></i> Bekijk op een grotere kaart</a></small>
+										</div>
+									</div>
+									<div class="u-hr u-spacer--tb--large"></div>
+
 								</div>
 							</div>
 
-							<div class="u-hr u-spacer--large"></div>
-
-							<h2 class="h3 sans-serif u-spacer--tiny word-break--break-all">Eigenschappen en relaties</h2>
+							<h2 class="h2 sans-serif u-spacer--tiny word-break--break-all">Eigenschappen en relaties</h2>
 							<p class="u-spacer">Directed links van het onderwerp.</p>
 							{{!-- <h2 class="h3 sans-serif u-spacer--tiny word-break--break-all">Extra informatie over <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">label</a></h2> --}}
 
