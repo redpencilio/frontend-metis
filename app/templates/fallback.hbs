@@ -88,18 +88,18 @@
 									<table class="data-table data-table--zebra">
 									  <thead>
 									    <tr>
-									      {{!-- <th>subject</th> --}}
+									      <th>Onderwerp {{!-- Subject --}}</th>
 									      <th>Eigenschap{{!-- predicate --}}</th>
-									      <th>Inhoud{{!-- object --}}</th>
+									      {{!-- <th>object</th> --}}
 									      <th>Definitie</th>
 									    </tr>
 									  </thead>
 									  <tbody>
 									    {{#each model.triples.inverse as |triple|}}
 									      <tr>
-									        {{!-- <td><Metis::DisplayUri @uri={{triple.subject}} /></td> --}}
+									        <td><Metis::DisplayUri @uri={{triple.subject}} /></td>
 									        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
-									        <td><Metis::DisplayUri @uri={{triple.object}} /></td>
+									        {{!-- <td><Metis::DisplayUri @uri={{triple.object}} /></td> --}}
 									        <td>Bijvoorbeeld een persoon in zijn of haar rol als houder van een mandaat.</td>
 									      </tr>
 									    {{/each}}
