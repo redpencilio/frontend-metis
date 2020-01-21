@@ -1,4 +1,4 @@
-{{#if this.hasShort}}
+{{!-- {{#if this.hasShort}}
 	<p class="u-spacer--tiny">
 		<a href={{@uri}} data-toggle="tooltip" title="{{@uri}} a" data-content="{{@uri}}" data-placement="top"><strong>{{this.label}}</strong></a>
 	</p>
@@ -12,11 +12,8 @@
     <a href={{@uri}}>{{@uri}}</a>
   {{/if}}
 {{/if}}
+ --}}
 
-
-
-
-{{!--
 {{#if this.hasShort}}
   <span {{on "click" (fn (mut this.showShort) (not this.showShort))}} aria-role="button">
     {{#if this.hasShort}}
@@ -37,4 +34,3 @@
     <a href={{@uri}}>{{@uri}}</a>
   {{/if}}
 {{/if}}
- --}}
