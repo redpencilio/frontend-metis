@@ -16,7 +16,7 @@ export default class FallbackRoute extends Route {
     return { triples: jsonResponse, subject: subject };
   }
 
-  afterModel( model, controller ) {
+  afterModel( model ) {
     super.afterModel(...arguments);
 
     const types = this.findTypes(model);

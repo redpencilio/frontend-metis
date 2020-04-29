@@ -1,4 +1,4 @@
-<h1>Describing {{model.subject}}</h1>
+<h1>Describing {{this.model.subject}}</h1>
 
 <h2>Directed</h2>
 
@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each model.triples.directed as |triple|}}
+    {{#each this.model.triples.directed as |triple|}}
       <tr>
         <td><Metis::DisplayUri @uri={{triple.subject}} /></td>
         <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
@@ -34,7 +34,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each model.triples.inverse as |triple|}}
+    {{#each this.model.triples.inverse as |triple|}}
       <tr>
         <td><Metis::DisplayUri @uri={{triple.subject}} /></td>
         <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
