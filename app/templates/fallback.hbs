@@ -1,15 +1,16 @@
+{{!-- {{title "Generieke informatie over link Metis"}} --}}
 {{!--
 	Vragen:
 	-	tijd vervormen in iets leesbaar?
 	-	tooltips?
 	-	is er ook iets als een pagina van wat een "persoon" eigenlijk is?
---}}
+	--}}
 
-<div class="container-flex--scroll">
-	<div class="page">
-		<div class="region">
-			<div class="layout layout--wide">
-				{{#if isEmpty}}
+	<div class="container-flex--scroll">
+		<div class="page">
+			<div class="region">
+				<div class="layout layout--wide">
+					{{#if isEmpty}}
 
 					<div class="grid">
 						<div class="col--7-12 col--12-12--s">
@@ -25,109 +26,92 @@
 						</div>
 					</div>
 
-				{{else}}
+					{{else}}
 
 					<div class="grid">
 						<div class="col--8-12 col--12-12--s">
 							<div class="u-hr region typography u-spacer">
-								<h1 class="h1 word-break--break-all smaller">Detailpagina voor <a href="{{model.subject}}" data-toggle="tooltip" title="Onderwerp" data-content="Onderwerp" data-placement="top">{{model.subject}}</a></h1>
+								<h1 class="h1 word-break--break-all smaller">Detailpagina URI</h1>
 								<p class="introduction">Deze pagina geeft informatie over het onderwerp <a href="{{model.subject}}" data-toggle="tooltip" title="Onderwerp" data-content="Onderwerp" data-placement="top" class="word-break--break-all">{{model.subject}}</a> weer, door relaties en details te tonen.</p>
-							</div>
-
-							<div class="u-hr region typography u-spacer">
-								<div class="grid">
-									<div class="col--4-12">
-										<div class="placeholder-picture">
-										</div>
-										<p><i class="fa fa-female"></i> °24-07-1989</p>
-									</div>
-									<div class="col--8-12">
-										<h1 class="h1 u-spacer--bottom--tiny word-break--break-all">Detailpagina voor<br><a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Voornaam</a> <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">Familienaam</a></h1>
-										<p class="introduction">Deze pagina geeft informatie over het onderwerp en diens relaties, eigenschappen en verwijzingen.</p>
-									</div>
-								</div>
-								<div class="region">
-									<h2 class="h4 sans-serif u-spacer--none">Mandaat: <a href="#">Burgemeester</a> <a href="#">Berlare</a></h2>
-									<iframe width="100%" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=3.929672241210938%2C50.995283325981084%2C4.046401977539063%2C51.06470168927767&amp;layer=transportmap"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=13/51.0300/3.9880&amp;layers=T" target="_blank"><i class="fa fa-external-link"></i> Bekijk op een grotere kaart</a></small>
-								</div>
 							</div>
 
 							<h2 class="h3 sans-serif u-spacer--tiny word-break--break-all">Eigenschappen en relaties</h2>
 							<p class="u-spacer">Directed links van het onderwerp.</p>
 							{{!-- <h2 class="h3 sans-serif u-spacer--tiny word-break--break-all">Extra informatie over <a href="{{model.subject}}" data-toggle="tooltip" title="{{model.subject}} a" data-content="{{model.subject}}" data-placement="top">label</a></h2> --}}
 
+							{{#if model.triples.directed}}
 							<div class="u-spacer--large">
 								<table class="data-table data-table--zebra">
-								  <thead>
-								    <tr>
-								      {{!-- <th>subject</th> --}}
-								      <th>Eigenschap{{!-- predicate --}}</th>
-								      <th>Inhoud{{!-- object --}}</th>
-								      <th>Definitie</th>
-								    </tr>
-								  </thead>
-								  <tbody>
-			{{!-- 					  	<tr>
-								  		<td>
-								  			<p>Label</p>
-								  			<button class="button button--tiny button--alt">Toon link</button>
-								  			<a href="#">Open link</a>
-								  		</td>
-								  	</tr> --}}
-								    {{#each model.triples.directed as |triple|}}
-								      <tr>
-								        {{!-- <td><Metis::DisplayUri @uri={{triple.subject}} /></td> --}}
-								        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
-								        <td>
-								          {{#if (eq triple.object.type "uri")}}
-								            <Metis::DisplayUri @uri={{triple.object.value}} />
-								          {{else}}
-								            {{triple.object.value}}
-								          {{/if}}
-								        </td>
-								        <td>Bijvoorbeeld een persoon in zijn of haar rol als houder van een mandaat.</td>
-								      </tr>
-								    {{/each}}
-								  </tbody>
-								</table>
-							</div>
-
-							<h2 class="h3 sans-serif u-spacer--tiny">Verwijzingen</h2>
-							<p class="u-spacer">Inverse links naar het onderwerp.</p>
-							{{!-- <p class="u-spacer--small">{{model.subject}}</p> --}}
-
-							{{#if model.triples.inverse}}
-								<div class="u-spacer--large">
-									<table class="data-table data-table--zebra">
-									  <thead>
-									    <tr>
-									      {{!-- <th>subject</th> --}}
-									      <th>Eigenschap{{!-- predicate --}}</th>
-									      <th>Inhoud{{!-- object --}}</th>
-									      <th>Definitie</th>
-									    </tr>
-									  </thead>
-									  <tbody>
-									    {{#each model.triples.inverse as |triple|}}
-									      <tr>
-									        {{!-- <td><Metis::DisplayUri @uri={{triple.subject}} /></td> --}}
-									        <td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
-									        <td><Metis::DisplayUri @uri={{triple.object}} /></td>
-									        <td>Bijvoorbeeld een persoon in zijn of haar rol als houder van een mandaat.</td>
-									      </tr>
-									    {{/each}}
+									<thead>
+										<tr>
+											<th>Object {{!-- object --}}</th>
+											<th>Eigenschap{{!-- predicate --}}</th>
+											<th>Definitie</th>
+										</tr>
+									</thead>
+									<tbody>
+				{{!-- 					  	<tr>
+									  		<td>
+									  			<p>Label</p>
+									  			<button class="button button--tiny button--alt">Toon link</button>
+									  			<a href="#">Open link</a>
+									  		</td>
+									  	</tr> --}}
+									  	{{#each model.triples.directed as |triple|}}
+									  	<tr>
+									  		<td>
+									  			{{#if (eq triple.object.type "uri")}}
+									  			<Metis::DisplayUri @uri={{triple.object.value}} />
+									  			{{else}}
+									  			{{triple.object.value}}
+									  			{{/if}}
+									  		</td>
+									  		<td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
+									  		<td>Bijvoorbeeld een persoon in zijn of haar rol als houder van een mandaat.</td>
+									  	</tr>
+									  	{{/each}}
 									  </tbody>
 									</table>
 								</div>
-							{{else}}
-								<p class="text-fade">Geen verwijzingen gevonden.</p>
-							{{/if}}
+								{{else}}
+								<p class="text-fade u-spacer--large">Geen directed links gevonden.</p>
+								{{/if}}
+
+								<h2 class="h3 sans-serif u-spacer--tiny">Verwijzingen</h2>
+								<p class="u-spacer">Inverse links naar het onderwerp.</p>
+								{{!-- <p class="u-spacer--small">{{model.subject}}</p> --}}
+
+								{{#if model.triples.inverse}}
+								<div class="u-spacer--large">
+									<table class="data-table data-table--zebra">
+										<thead>
+											<tr>
+												<th>Onderwerp {{!-- subject --}}</th>
+												<th>Eigenschap{{!-- predicate --}}</th>
+												<th>Definitie</th>
+											</tr>
+										</thead>
+										<tbody>
+											{{#each model.triples.inverse as |triple|}}
+											<tr>
+												<td><Metis::DisplayUri @uri={{triple.subject}} /></td>
+												<td><Metis::DisplayUri @uri={{triple.predicate}} /></td>
+												{{!-- <td><Metis::DisplayUri @uri={{triple.object}} /></td> --}}
+												<td>Bijvoorbeeld een persoon in zijn of haar rol als houder van een mandaat.</td>
+											</tr>
+											{{/each}}
+										</tbody>
+									</table>
+								</div>
+								{{else}}
+								<p class="text-fade u-spacer--large">Geen verwijzingen gevonden.</p>
+								{{/if}}
+							</div>
 						</div>
+						{{/if}}
 					</div>
-				{{/if}}
+				</div>
 			</div>
 		</div>
-	</div>
-</div>
 
-{{outlet}}
+		{{outlet}}
