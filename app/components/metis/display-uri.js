@@ -7,7 +7,8 @@ export default class MetisDisplayUriComponent extends Component {
   @tracked externalPreflabel = null
   @tracked internalPreflabel = null;
   @tracked showShort = true;
-
+  @tracked description;
+  
   constructor(){
     super(...arguments);
     if( this.args.uri ){
@@ -54,6 +55,15 @@ export default class MetisDisplayUriComponent extends Component {
       return this.externalPreflabel;
     } else {
       return this.args.uri;
+    }
+  }
+
+
+  get description(){
+    if (this.description){
+      return this.description
+    } else {
+      return null
     }
   }
 

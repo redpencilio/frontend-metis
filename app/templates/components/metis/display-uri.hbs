@@ -27,6 +27,9 @@
   {{else}}
     <a href={{@uri}}>[open]</a>
   {{/if}}
+    {{#if this.description}}
+  <button>{{this.description}}</button>
+  {{/if}}
 {{else}}
   {{#if this.localBasePath}}
     {{link-to @uri "fallback" this.localBasePath}}
